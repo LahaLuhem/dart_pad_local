@@ -1,7 +1,9 @@
+import 'package:dart_pad_local/locator.dart';
 import 'package:dart_pad_local/views/home_view.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
-void main() {
+Future<void> main() async {
+  await Locator.setup();
   runApp(const MyApp());
 }
 

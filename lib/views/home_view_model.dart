@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dart_pad_local/locator.dart';
 import 'package:dart_pad_local/services/execution_service.dart';
 import 'package:dart_pad_local/services/file_io_service.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -10,9 +11,11 @@ class HomeViewModel extends BaseViewModel<void> {
   final FileIOService _fileIOService;
   final ExecutionService _executionService;
 
-  HomeViewModel()
-      : _fileIOService = FileIOService(),
-        _executionService = ExecutionService();
+  HomeViewModel({
+    required FileIOService fileIOService,
+    required ExecutionService executionService,
+  })  : _fileIOService = fileIOService,
+        _executionService = executionService;
 
   late final codeBoxController;
   final outBoxController = TextEditingController();
@@ -50,6 +53,8 @@ class HomeViewModel extends BaseViewModel<void> {
 
     super.dispose();
   }
+
+  static HomeViewModel get locate => Locator.locate();
 }
 
 class _SyntaxTextEditingController extends TextEditingController {

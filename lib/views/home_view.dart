@@ -10,7 +10,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder(
-        viewModelBuilder: () => HomeViewModel(),
+        viewModelBuilder: () => HomeViewModel.locate,
         builder: (context, model, isInitialised, _) {
           return ScaffoldPage(
             header: Padding(
